@@ -14,7 +14,7 @@ class MiNav extends HTMLElement {
       <a href="IOT.html">
         <span
           class="material-icons">
-          info
+          login
         </span>
         Prueba IoT
       </a>`;
