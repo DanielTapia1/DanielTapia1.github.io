@@ -11,7 +11,7 @@ class MiNav extends HTMLElement {
         </span>
         Inicio
       </a>
-      <a href="index2ioT.html">
+      <a href="IOT.html">
         <span
           class="material-icons">
           info
