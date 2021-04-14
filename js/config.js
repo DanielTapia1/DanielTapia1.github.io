@@ -7,14 +7,14 @@ class MiNav extends HTMLElement {
       `<a href="index.html">
         <span
           class="material-icons">
-          home
+          view_in_ar
         </span>
         Inicio
       </a>
       <a href="IOT.html">
         <span
           class="material-icons">
-          lock
+          stars
         </span>
         Prueba IoT
       </a>`;
