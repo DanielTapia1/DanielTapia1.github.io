@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* Este archivo debe estar
  * colocado en la carpeta raíz del
  * sitio.
@@ -21,74 +22,45 @@ const CACHE = "dmppwa-1.000";
 
 /** Archivos requeridos para que
  * la aplicación funcione fuera de
- * línea.
- */
+ * línea. */
 const ARCHIVOS = [
-  "favicon.ico",
-  "index.html",
-  "site.webmanifest",
-  "dispositivo.html",
-  "historial.html",
-  "IOT.html",
-  "css/colores.css",
+  "cmp/mi-nav.js",
+  "css/campo.css",
   "css/estilos.css",
-  "css/estilos2.css",
-  "cmp/mi-footer.js",
-  "disp/CtrlDispositivo.js",
-  "disp/ProxyEntrada.js",
-  "disp/ProxyHistorial.js",
-  "disp/ProxySalida.js",
-  "disp/ResInt.js",
-  "disp/utilIoT.js",
+  "css/mi-nav.css",
   "img/icono256.png",
-  "js/config.js",
+  "img/icono1024.png",
+  "img/icono2048.png",
+  "js/agent.js",
   "js/CtrlDivide.js",
   "js/regSw.js",
-  "js/tipos.js",
-  "js/init.js",
-  "js/CtrlMovil.js",
-  "js/CtrlHistorial.js",
-  "js/CtrlDivide.js",
-  "lib/campo-dinamico.js",
-  "lib/campos.css",
-  "lib/fabrica.js",
-  "lib/icono.css",
-  "lib/material-icons.css",
-  "lib/MaterialIcons-Regular.codepoints",
-  "lib/MaterialIcons-Regular.ttf",
-  "lib/mi-nav.css",
-  "lib/movil.js",
-  "lib/principal.css",
-  "lib/roboto-v20-latin-700.woff",
-  "lib/roboto-v20-latin-700.woff2",
-  "lib/roboto-v20-latin-regular.woff",
-  "lib/roboto-v20-latin-regular.woff2",
-  "lib/roboto.css",
-  "lib/tiposFire.js",
-  "lib/util.js",
-  "/"
+  "archivos.html",
+  "ayuda.html",
+  "favicon.ico",
+  "gps.html",
+  "index.html",
+  "LICENSE",
+  "README.md",
+  "site.webmanifest",
+  '/'
 ];
 
-self.addEventListener('install', e => {
-  e.waitUntil(
-    caches.open(CACHE)
-      .then(cache => {
-        return cache.addAll(urlsToCache)
-          .then(() => self.skipWaiting())
-      })
-      .catch(err => console.log('Falló registro de cache', err))
-  )
-})
+self.addEventListener("install",
+  evt => {
+    console.log("sw instalado.");
+    /* Realiza la instalación.
+     * Carga los archivos
+     * requeridos en la caché. */
+    evt.waitUntil(cargaCache());
+  });
 
 /* Toma los archivos solicitados
  * de la caché; si no los
  * encuentra, se descargan. */
 self.addEventListener("fetch",
   evt => {
-    // @ts-ignore
     if (evt.request.method ===
       "GET") {
-      // @ts-ignore
       evt.respondWith(
         usaCache(evt));
     }
