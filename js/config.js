@@ -7,7 +7,7 @@ class MiNav extends HTMLElement {
       `<a href="index.html">
         <span
           class="material-icons">
-          perm_identity
+          person
         </span>
         Inicio
       </a>
