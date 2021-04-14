@@ -16,7 +16,7 @@ class MiNav extends HTMLElement {
           class="material-icons">
           info
         </span>
-        IoT
+        Prueba IoT
       </a>`;
   }
 }
